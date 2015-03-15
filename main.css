@@ -1,0 +1,126 @@
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.contents{
+    padding-bottom: 3em;
+}
+
+#navigation{
+    width: 100%;
+    background: url(ghoul1.jpg) no-repeat scroll center center / cover transparent;
+    color: black;
+    height: 450px;border-bottom: 2px solid #9AA5AD;
+}
+
+#navigation #top_navigation{
+    width: 70%;
+    margin: auto;
+    padding-top: 25px;
+}
+
+#top_navigation li, #top_navigation li a{
+    display: inline;
+    text-decoration: none;
+    color: rgba(40, 40, 40, 0.72);
+    font-size: 0.8em;
+    margin: 0px 5px;
+}
+
+#top_navigation .reg_login{
+    float: right;
+    margin-right: 5px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9em;
+    border: 2px solid #FFF;
+    border-radius: 3px;
+    padding: 8px 13px;
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.26);
+    margin-top: -9px;
+}
+
+#top_navigation .reg_login:hover{
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.52);
+}
+.register_field{
+    background: none repeat scroll 0% 0% #ECECEC;
+    width: 100%;
+    padding: 50px 0px;
+}
+
+.register_field .reg_form h2{
+    text-align: center;
+    margin-top: 0px;
+    color: #022F70;
+}
+
+.reg_form input:first-of-type {
+    border-radius: 2px 0px 0px 2px;
+}
+
+.reg_form input {
+    border-width: medium medium medium 2px;
+    border-style: none none none solid;
+    border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color rgba(60, 145, 202, 0.55);
+    border-image: none;
+    width: 20%;
+    border-radius: 0px;
+    font-size: 1.02em;
+    padding: 9px;
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    outline: medium none;
+}
+
+input[type="submit"], button[type="submit"] {
+    border-radius: 2px;
+    background-color: #3498DB;
+    border: medium none;
+    color: #FFF;
+    outline: medium none;
+    padding: 8px;
+}
+
+.reg_form input[type="submit"] {
+    border-left: 2px solid #2980BA;
+    border-radius: 0px 2px 2px 0px;
+}
+
+.form{
+    width: 80%;
+    margin: 0px 17%;
+    margin-bottom: 48px;
+}
+
+/*	
+        Only the footer codes are down there
+*/
+
+#footer{
+    background-color: #161616;
+    border-top: 2px solid #9AA5AD;
+    height: 48px;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer a{
+    padding-right: 5px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #FFF;
+}
+
+#footer a:hover{
+    color: #4364DA;
+}
+
+.footer{
+    width: 80%;
+}

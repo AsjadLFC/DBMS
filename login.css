@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 1, 2015, 4:12:45 PM
+    Author     : programmercore
+*/
+
+.container, body{
+    background: none repeat scroll 0% 0% #ECECEC;
+    width: 100%;
+    height: 100%;
+}
+
+#login_field{
+    height: 250px;
+}
+
+.place1{
+    max-width: 300px;
+    width: 100%;
+    margin: 1px auto 0px;
+}
+
+.login_form input[type="text"], .login_form input[type="password"] {
+    width: 100%;
+    margin-bottom: 10px;
+    border: medium none;
+    background: none repeat scroll 0% 0% #E2E2E2;
+    font-size: 1.05em;
+    color: #022F70;
+}
+input[type="text"], input[type="password"], input[type="number"], textarea {
+    border-radius: 2px;
+    transition: all 0.2s ease 0s;
+    background: none repeat scroll 0% 0% #FCFCFC;
+    border: 1px solid #D9D9D9;
+    font-size: 0.75rem;
+    outline: medium none;
+    padding: 8px;
+    box-shadow: none;
+}
+.login_form input[type="submit"] {
+    width: 100%;
+    margin-bottom: 0px;
+    border: medium none;
+    height: 38px;
+}
+input[type="submit"], button[type="submit"] {
+    border-radius: 2px;
+    transition: all 0.2s ease 0s;
+    background-color: #3498DB;
+    border: medium none;
+    color: #FFF;
+    outline: medium none;
+    padding: 6px;
+}
+
+input {
+    line-height: normal;
+}
+
+#footer{
+    background-color: #161616;
+    height: 48px;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #9AA5AD;
+}
+
+#footer a{
+    padding-right: 5px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #FFF;
+}
+
+#footer a:hover{
+    color: #4364DA;
+}
+
+.footer{
+    width: 80%;
+}
