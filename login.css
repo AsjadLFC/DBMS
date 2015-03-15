@@ -14,6 +14,28 @@ and open the template in the editor.
     height: 100%;
 }
 
+.heading{
+    width: 98%;
+    height: 70px;
+    border-radius: 3px;
+    border: 1px solid #E0E3E9;   
+    background: none repeat scroll 0% 0% #EFEFEF;
+    margin: auto;
+}
+.heading h1{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    padding-top: 20px;
+    color: #3498DB;
+    font-size: 30px;
+    font: verdana, arial;
+}
+.heading h1 a{
+    text-decoration: none;
+    color: #3498DB;
+}
+
 #login_field{
     height: 250px;
 }
@@ -43,7 +65,7 @@ input[type="text"], input[type="password"], input[type="number"], textarea {
     box-shadow: none;
 }
 .login_form input[type="submit"] {
-    width: 100%;
+    width: 105%;
     margin-bottom: 0px;
     border: medium none;
     height: 38px;

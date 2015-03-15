@@ -1,0 +1,110 @@
+.container{
+    height: 100%;width: 100%;
+    background: #ECECEC;
+}
+
+.top_bar{
+    height: 50px;
+    width: 100%;
+    background: none repeat scroll 0% 0% #EFEFEF;	border-bottom: 2px solid #9AA5AD;
+}
+
+.top_bar h1{
+    margin-left: 40px;font-size: 40px;font-family: monospace;text-transform: lowercase; letter-spacing: 8px;
+    color: #3498DB;
+    font: verdana, arial;
+}
+
+#menu{
+    float: right;margin-right: 50px; margin-top: -29px;
+}
+
+ul{
+    padding: 0; list-style: none;
+}
+ul li{
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+
+ul li a{
+    display: block;
+    padding: 8px 10px;
+    color: #FFF;
+    background: #EFEFEF;
+    text-decoration: none;
+}
+
+ul li a, ul li ul li{
+    text-decoration: none;
+    font-family: monospace;letter-spacing: -1px;
+    color: #3498DB;
+}
+
+ul li a:hover{
+    color: #3498DB;
+    background: #EFEFEF;
+}
+
+ul li ul{
+    display: none;
+}
+
+ul li ul a:hover{
+    background: #9AA5AD;
+    color: #121212;
+}
+
+ul li:hover ul{
+    display: block; /* display the dropdown */
+}
+
+.series_description{
+    width: 87%;
+    height: 300px;
+    margin: auto;
+    border-bottom: 2px solid #022F70;
+}
+
+.series_image{
+    height: 100%;
+    width: 25%;
+    margin-left: 15%;
+    border-right: 2px groove #022F70;
+}
+
+.description{
+
+
+}
+/*	
+        Only the footer codes are down there
+*/
+
+#footer{
+    background-color: #161616;
+    border-top: 2px solid #9AA5AD;
+    height: 48px;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer a{
+    padding-right: 5px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #FFF;
+}
+
+#footer a:hover{
+    color: #4364DA;
+}
+
+.footer{
+    width: 80%;
+}

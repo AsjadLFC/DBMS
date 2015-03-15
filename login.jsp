@@ -17,6 +17,9 @@
     </head>
     <body>
         <div class="container">
+            <div class="heading">
+                <h1><a href="index.jsp">Not Decided</a></h1>
+            </div>
             <div id="login_field"></div>
             <div class="place1">
                 <form class="login_form" method="get">
