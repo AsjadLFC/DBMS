@@ -11,7 +11,6 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <link rel="shortcut icon" type="image/x-icon" href="tvfavicon1.png" />
         <link rel="stylesheet" href="main.css"/>
         <link rel="stylesheet" href="reset.css"/>
         <title>Login || Register</title>

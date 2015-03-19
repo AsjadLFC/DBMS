@@ -13,7 +13,7 @@
     margin: auto;
 }
 .heading h1{
-    width: 80%;
+    width: 79.8%;
     height: 100%;
     margin: auto;
     padding-top: 20px;
@@ -22,17 +22,12 @@
     font: verdana, arial;
 }
 
-.heading h1 a{
-    text-decoration: none;
-    color: #3498DB;
-}
-
 /*
         *	This Section only affects the form part of the profile page
 */
 
 .form {
-    height: 600px;
+    height: 600px;padding-bottom: 40px;
     width: 65%;
     margin: auto;
     margin-top: 20px;
@@ -63,7 +58,6 @@
     padding: 22.5px 22.5px 30px;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     width: 70%;
-    height: 100%;
     margin: auto;
 }
 
@@ -117,4 +111,32 @@ input[type="submit"], button[type="submit"] {
     color: #FFF;
     outline: medium none;
     padding: 6px;
+}
+
+#footer{
+    margin-top: 50px;
+    background-color: #161616;
+    border-top: 2px solid #9AA5AD;
+    height: 48px;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+#footer a{
+    padding-right: 5px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #FFF;
+}
+
+#footer a:hover{
+    color: #4364DA;
+}
+
+.footer{
+    width: 80%;
 }

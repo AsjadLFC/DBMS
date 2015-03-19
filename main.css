@@ -51,7 +51,6 @@
 
 .register_field .reg_form h2{
     text-align: center;
-    margin-top: 0px;
     color: #022F70;
 }
 
@@ -89,9 +88,7 @@ input[type="submit"], button[type="submit"] {
 }
 
 .form{
-    width: 80%;
-    margin: 0px 17%;
-    margin-bottom: 48px;
+    width: 80%;margin: auto;margin-left: 230px;height: 20px;
 }
 
 /*	

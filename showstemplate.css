@@ -1,22 +1,28 @@
-.container{
+.container,body{
     height: 100%;width: 100%;
     background: #ECECEC;
 }
 
 .top_bar{
-    height: 50px;
-    width: 100%;
-    background: none repeat scroll 0% 0% #EFEFEF;	border-bottom: 2px solid #9AA5AD;
+    height: 70px;
+    width: 98%;
+    border-radius: 3px;
+    border: 1px solid #E0E3E9;   
+    background: none repeat scroll 0% 0% #EFEFEF;
+    margin: auto;
 }
 
 .top_bar h1{
-    margin-left: 40px;font-size: 40px;font-family: monospace;text-transform: lowercase; letter-spacing: 8px;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
     color: #3498DB;
+    font-size: 30px;
     font: verdana, arial;
 }
 
 #menu{
-    float: right;margin-right: 50px; margin-top: -29px;
+    float: right;margin-top: -18px;
 }
 
 ul{
@@ -66,18 +72,42 @@ ul li:hover ul{
     margin: auto;
     border-bottom: 2px solid #022F70;
 }
+.series_description #show_name{
+    width: 100%;
+}
 
 .series_image{
     height: 100%;
     width: 25%;
     margin-left: 15%;
-    border-right: 2px groove #022F70;
+    border-right: 2px groove #022F70;background:url(../Images/ghoul1.jpg) no-repeat scroll center center / cover transparent;
 }
 
 .description{
+    margin-top: -290px;margin-left: 40.2%;
+    height: 289px;
+}
+.description h1{
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;color: #000;font-size: 1.5em;padding-bottom: 2px;
+    font-weight: bolder;width:677px;line-height: 30px;
+}
+.description h2{
+    border-bottom: 2px solid #A7A7A7;font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;color: #7F919E;
+    font-weight: bolder;
+}
+.description p{
+    font: verdana,arial;font-size: 13px;line-height: 1.7em;text-align: center;width: 677px;
+}
 
+.further_description{
+    width:87%;background: #ECECEC;;height: 400px;margin: auto;
+}.information{
+    height: 100%;width: 25%;margin-left: 176.5px;
+    float: left;
+}.actors_voice{
 
 }
+
 /*	
         Only the footer codes are down there
 */
@@ -89,7 +119,7 @@ ul li:hover ul{
     text-align: right;
     position: absolute;
     left: 0;
-    bottom: 0;
+    margin-bottom: 0;
     width: 100%;
 }
 

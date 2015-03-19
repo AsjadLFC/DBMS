@@ -34,7 +34,11 @@
 
             <div class="series_description">
                 <div class="series_image"></div>
-                <div class="description"></div>
+                <div class="description"><h1 id="show_name"></h1><h2>Synopsis</h2><p></p></div>
+            </div>
+            <div class="further_description">
+                <div class="information"></div>
+                <div class="actors_voice"></div>
             </div>
             <div id="footer">
                 <div class="footer">
