@@ -16,21 +16,23 @@
         <title>Edit Profile</title>
     </head>
     <body>
+        <%@include file="loginchecker.jsp" %>
         <div class="container">
             <div class="heading">
                 <h1>Not Decided</h1>
             </div>
-            <form class="form" method="get">
+            <form class="form" method="get" action="profileupdate.jsp">
                 <div class="form_header">
                     <h1 class="form-heading">Profile</h1>
                     <p class="profile_description">Control your profile information, both what it says and what other people see. User profiles are shown to other users.</p>
                 </div>
                 <div class="form_content">
-                    <div class="fieldset"><label>Name</label><input class="profile_input" placeholder="Display Name" type="text"></div>
-                    <div class="fieldset"><label>Country</label><input class="profile_input" placeholder="e.g Germany" type="text"></div>
-                    <div class="fieldset"><label>My Birthday</label><input class="profile_input" placeholder="e.g 31-12-2000" type="text"></div>
-                    <div class="fieldset"><label>Gender</label><select class="gender"><option></option><option value="Male">Male</option><option value="Female">Female</option></select></div>
-                    <div class="fieldset"><label>About Me</label><input class="profile_input" placeholder="Max Characters: 200" maxlength="200" type="text"></div>
+                    <div class="fieldset"><label>Avatar</label><input name="pr_image" class="profile_input" data-role="avatar-file-upload" type="file"></div>
+                    <div class="fieldset"><label>Name</label><input name="pr_name" class="profile_input" placeholder="Display Name" type="text"></div>
+                    <div class="fieldset"><label>Country</label><input name="pr_country" class="profile_input" placeholder="e.g Germany" type="text"></div>
+                    <div class="fieldset"><label>My Birthday</label><input name="pr_DOB" class="profile_input" placeholder="e.g 31-12-2000" type="text"></div>
+                    <div class="fieldset"><label>Gender</label><select name="pr_gender" class="gender"><option></option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                    <div class="fieldset"><label>About Me</label><input name="pr_about" class="profile_input" placeholder="Max Characters: 200" maxlength="200" type="text"></div>
                     <div class="fieldset"><input value="Save" type="submit"></div>
                 </div>
             </form>

@@ -15,6 +15,7 @@
     </head>
 
     <body>
+        <%@include file="loginchecker.jsp" %>
         <div class="header">
             <div class="header_contents">
                 <ul>

@@ -20,7 +20,7 @@
     </head>
 
     <body>
-        
+        <%@include file="loginchecker.jsp" %>
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/employeee"
                            user="root"  password="I'm insane"/>
@@ -43,7 +43,7 @@
                             <li><a href="" >Home</a></li>
                             <li><a href="" >Profile</a></li>
                             <li><a href="" >Series list</a></li>
-                            <li><a href="" >Logout</a></li>
+                            <li><a href="logout.jsp" >Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,7 +66,7 @@
                             </tr>
                             <c:forEach var="row" items="${result.rows}">
                                 <tr>
-                                    <td class="show_info" align="center"><a href=""><c:out value="${row.ename}"/></a></td>
+                                    <td class="show_info" align="center"><a href="showstemplate.jsp?show=${row.ename}"><span id="enameval"><c:out value="${row.ename}"/></span></a></td>
                                     <td class="show_info extra" align="center"><c:out value="${row.empno}"/></td>
                                     <td class="show_info extra" align="center"><c:out value="${row.mgr}"/></td>
                                     <td class="show_info extra" align="center"><c:out value="${row.hiredate}"/></td>
@@ -74,6 +74,25 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                    <script src="jquery.js"></script>
+                    <script type="javascript">
+                                function ClickMe_Click(){
+                                    var enamevalue=document.getElementById('enameval').innerHTML;
+                                    $.ajax({
+                                        type:   "post",
+                                        url:    "showstemplate.jsp",
+                                        data:   {"dimensionName":enamevalue},
+                                        success:    function(msg){
+                                            alert(msg.data);
+                                        },
+                                        error:function(xhr,ajaxOptions,thrownError){
+                                            alert(xhr.status);
+                                            alert(thrownError);
+                                        }
+                                    });
+                                    return false;
+                                }
+                    </script>
                 </div>
             </div>
 

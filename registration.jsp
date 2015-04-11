@@ -4,20 +4,26 @@
     Author     : programmercore
 --%>
 
-<%@ page import ="java.sql.*" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
+
+
 <%
     String user = request.getParameter("user_name");   
     String pwd = request.getParameter("user_pass");
-    String email = request.getParameter("user_id");
+    String email = request.getParameter("user_mail");
     Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8080/DBMS",
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8080/employeee",
             "root", "I'm insane");
     Statement st = con.createStatement();
     //ResultSet rs;
     int i = st.executeUpdate("insert into members(User_Name, email, pass) values ('" + user + "','" + email + "','" + pwd);
     if (i > 0) {
         //session.setAttribute("userid", user);
-        response.sendRedirect("welcome.jsp");
+        response.sendRedirect("login.jsp");
        // out.print("Registration Successfull!"+"<a href='index.jsp'>Go to Login</a>");
     } else {
         response.sendRedirect("index.jsp");

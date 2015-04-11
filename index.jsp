@@ -28,11 +28,13 @@
                 </div>
                 <div class="register_field">
                     <div class="reg_form">
-                        <h2>Sign Up</h2>
-                        <form class="form" method="get">
-                            <input type="text" placeholder="Name"></input>
-                            <input type="email" placeholder="Email"></input>
-                            <input type="password" placeholder="Password"></input>
+                        <h2>Sign Up</h2><p class="error"><c:if test="${not empty param.errMsg}">
+                                <c:out value="${param.errMsg}" />
+                            </c:if></p>
+                        <form class="form" method="get" action="registration.jsp">
+                            <input name="user_name" type="text" placeholder="Name"></input>
+                            <input name="user_mail" type="email" placeholder="Email"></input>
+                            <input name="user_pass" type="password" placeholder="Password"></input>
                             <input type="submit" value="Sign up"></input>
                         </form>
                     </div>
