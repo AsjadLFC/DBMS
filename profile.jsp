@@ -28,11 +28,12 @@
                 </div>
                 <div class="form_content">
                     <div class="fieldset"><label>Avatar</label><input name="pr_image" class="profile_input" data-role="avatar-file-upload" type="file"></div>
-                    <div class="fieldset"><label>Name</label><input name="pr_name" class="profile_input" placeholder="Display Name" type="text"></div>
+                    <div class="fieldset"><label>First Name</label><input name="pr_Fname" class="profile_input" placeholder="First Name" type="text"></div>
+                    <div class="fieldset"><label>Last Name</label><input name="pr_Lname" class="profile_input" placeholder="Last Name" type="text"></div>
                     <div class="fieldset"><label>Country</label><input name="pr_country" class="profile_input" placeholder="e.g Germany" type="text"></div>
-                    <div class="fieldset"><label>My Birthday</label><input name="pr_DOB" class="profile_input" placeholder="e.g 31-12-2000" type="text"></div>
-                    <div class="fieldset"><label>Gender</label><select name="pr_gender" class="gender"><option></option><option value="Male">Male</option><option value="Female">Female</option></select></div>
-                    <div class="fieldset"><label>About Me</label><input name="pr_about" class="profile_input" placeholder="Max Characters: 200" maxlength="200" type="text"></div>
+                    <div class="fieldset"><label>Gender</label><select name="pr_gender" class="gender"><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                    <div class="fieldset"><label>About Me</label><input name="pr_about" class="profile_input" placeholder="Max Characters: 450" maxlength="450" type="text"></div>
+                    <div class="fieldset"><label>Type</label><select name="pr_type" class="gender"><option value="Normal">Normal User</option><option value="Admin">Admin</option></select></div>
                     <div class="fieldset"><input value="Save" type="submit"></div>
                 </div>
             </form>

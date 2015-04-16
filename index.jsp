@@ -32,7 +32,7 @@
                                 <c:out value="${param.errMsg}" />
                             </c:if></p>
                         <form class="form" method="get" action="registration.jsp">
-                            <input name="user_name" type="text" placeholder="Name"></input>
+                            <input name="user_name" type="text" placeholder="First Name"></input>
                             <input name="user_mail" type="email" placeholder="Email"></input>
                             <input name="user_pass" type="password" placeholder="Password"></input>
                             <input type="submit" value="Sign up"></input>

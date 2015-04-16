@@ -2,21 +2,16 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
-<%-- 
-    Document   : search
-    Created on : Mar 21, 2015, 10:23:43 PM
-    Author     : programmercore
---%>
-
+<% 
+      int ShowID = Integer.parseInt(request.getParameter("id"));
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="search.css"/>
         <link rel="stylesheet" href="reset.css"/>
-        <title>Not Decided</title>
+        <title>Review</title>
     </head>
 
     <body>
@@ -24,7 +19,11 @@
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/MYANIMELISTBORN"
                            user="root"  password="I'm insane"/>
-
+        
+        <sql:query dataSource="${snapshot}" var="result">
+                select RB.*,U.* from User U, Reviewed_By RB where U.User_ID=RB.User_ID and RB.Show_ID = <%= ShowID %>;
+            </sql:query>
+        
         <div class="container">
 
             <div class="top_bar">
@@ -50,33 +49,24 @@
             </div>
 
 
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT * from Shows where Title like '%${param.searchparameter}%' order by Title;
-            </sql:query>
-
             <div class="search_results">
                 <div class="result_field">
                     <table cellspacing="0" cellpadding="0" border="0" width="100%">
                         <tbody>
                             <tr class="search_space">
-                                <th class="normal_header">Search Results</td>
-                                <th class="normal_header" width="10%"><a href="">Type</a></td>
-                                <th class="normal_header" width="10%" nowrap=""><a href="">Eps.</a></td>
-                                <th class="normal_header" width="10%" nowrap=""><a href="">Score</a></td>
+                                <th class="normal_header" nowrap="" >Name</td>
+                                <th class="normal_header" width="80%"><a href="">Review</a></td>
                             </tr>
-                            <c:forEach var="row" items="${result.rows}">
-
-                                <sql:query dataSource="${snapshot}" var="score">
-                                    select Round(avg(Score),2) as score from Listed where Show_ID = ${row.Show_ID} and Status='Completed';
-                                </sql:query>
-
-                                <tr>
-                                    <td class="show_info" align="center"><a href="showstemplate.jsp?id=${row.Show_ID}"><span id="enameval"><c:out value="${row.Title}"/></span></a></td>
-                                    <td class="show_info extra" align="center">TV</td>
-                                    <td class="show_info extra" align="center"><c:out value="${row.Episodes}"/></td>
-                                    <td class="show_info extra" align="center"><c:forEach var="scor" items="${score.rows}"><c:out value="${scor.score}" /></c:forEach></td>
-                                </tr>
-                            </c:forEach>
+                        <form action="addreview.jsp" class="search_form"><tr>
+                                <td class="show_info extra" align="center"><select><option value="">Name</option></select></td><div class="showname"><select class="showname" name="show_name" ><option value="<%= ShowID %>"><%= ShowID %></option></select></div>
+                                <td class="show_info extra" align="center"><input name="content" class="review_input_field" placeholder="Submit Review" type="text" ><input class="review_submit" value="Submit" type="submit" ></td>
+                            </tr></form>
+                        <c:forEach var="row" items="${result.rows}">
+                        <tr>
+                            <td class="show_info" align="center"><c:out value="${row.F_Name}" /></td>
+                            <td class="show_info extra" align="center"><c:out value="${row.content}" /></td>
+                        </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

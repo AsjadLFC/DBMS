@@ -2,13 +2,15 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <%-- 
     Document   : profilepage
     Created on : Mar 25, 2015, 7:24:36 PM
     Author     : programmercore
 --%>
 
+<%
+    String User = (String)session.getAttribute("theName");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,8 +24,12 @@
     <body>
         <%@include file="loginchecker.jsp" %>
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/employeee"
+                           url="jdbc:mysql://localhost/MYANIMELISTBORN"
                            user="root"  password="I'm insane"/>
+        
+        <sql:query dataSource="${snapshot}" var="profile">
+            select * from User where Email="<%= User %>";
+        </sql:query>
         
         <br><div class="formsearch">
             <form class="search_form" method="get" action="search.jsp">
@@ -41,17 +47,15 @@
                 <div class="profile_info">
                     <div class="info">
                         <ul>
-                            <li>Name: Bastian Schweinsteger</li>
-                            <li>Age: 30</li>
-                            <li>Gender: Male</li>
-                            <li>Country: Germany</li>
-                            <li>DOB: 1 Aug 1984</li>
+                            <li>Name: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.F_Name}" /></c:forEach> <c:forEach var="row" items="${profile.rows}"><c:out value="${row.L_Name}" /></c:forEach></li>
+                            <li>Gender: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Gender}" /></c:forEach></li>
+                            <li>Country: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Country}" /></c:forEach></li>
                         </ul>
                     </div>			
 
                     <div class="about">
-                        <h2>About Me:</h2>
-                        <p>a</p>					
+                        <h2>About Me:</h2><br>
+                        <p><c:forEach var="row" items="${profile.rows}"><c:out value="${row.About}" /></c:forEach></p>					
                     </div>
 
                 </div>

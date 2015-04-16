@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
-
+<%@page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     
@@ -20,13 +21,13 @@
 
     <c:if test="${not empty param.username and not empty param.password}">
         <s:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
-                         url="jdbc:mysql://localhost/employeee"
+                         url="jdbc:mysql://localhost/MYANIMELISTBORN"
                          user="root" password="I'm insane"/>
 
         <s:query dataSource="${ds}" var="selectQ">
-            select count(*) as kount from users
-            where username='${param.username}'
-            and password='${param.password}'
+            select count(*) as kount from User
+            where Email='${param.username}'
+            and Password='${param.password}'
         </s:query>
 
         <c:forEach items="${selectQ.rows}" var="r">
@@ -35,6 +36,10 @@
                     <c:set scope="session"
                            var="loginUser"
                            value="${param.username}"/>
+                    <%
+                        String name = request.getParameter("username");
+                        session.setAttribute("theName", name);
+                    %>
                     <c:redirect url="profilepage.jsp"/>
                 </c:when>
                 <c:otherwise>

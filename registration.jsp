@@ -8,24 +8,32 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 
 
-<%
-    String user = request.getParameter("user_name");   
-    String pwd = request.getParameter("user_pass");
-    String email = request.getParameter("user_mail");
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8080/employeee",
-            "root", "I'm insane");
-    Statement st = con.createStatement();
-    //ResultSet rs;
-    int i = st.executeUpdate("insert into members(User_Name, email, pass) values ('" + user + "','" + email + "','" + pwd);
-    if (i > 0) {
-        //session.setAttribute("userid", user);
-        response.sendRedirect("login.jsp");
-       // out.print("Registration Successfull!"+"<a href='index.jsp'>Go to Login</a>");
-    } else {
-        response.sendRedirect("index.jsp");
-    }
-%>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Registration page</title>
+    </head>
+    <body>
+        <c:if test="${ empty param.user_name or empty param.user_pass or empty param.user_mail}">
+            <c:redirect url="login.jsp" >
+                <c:param name="errMsg" value="Please Enter UserName and Password" />
+            </c:redirect>
+
+        </c:if>
+
+        <c:if test="${not empty param.user_name and not empty param.user_pass and not empty param.user_mail}">
+            <sql:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
+                               url="jdbc:mysql://localhost/MYANIMELISTBORN"
+                               user="root" password="I'm insane"/>
+
+            <sql:update dataSource="${ds}" var="selectQ">
+                insert into User(Email,Password,F_Name)
+                Values('${param.user_mail}','${param.user_pass}','${param.user_name}')
+            </sql:update>
+            <c:redirect url="login.jsp"></c:redirect>
+        </c:if>
+
+    </body>
+</html>
