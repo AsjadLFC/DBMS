@@ -34,6 +34,21 @@
             select Round(avg(Score),2) as score from Listed where Show_ID = <%= ShowID%> and Status='Completed';
         </sql:query>
 
+        <sql:query dataSource="${snapshot}" var="rank">
+            SELECT z.rank FROM (
+            SELECT t.Show_ID,t.score, t.No_of_Entries, @rownum := @rownum + 1 AS rank
+            FROM ranks_popularity_vw t, (SELECT @rownum := 0) r
+            ORDER BY Score desc
+            ) as z WHERE Show_ID=<%=ShowID%>;
+        </sql:query>
+
+        <sql:query dataSource="${snapshot}" var="popularity">
+            SELECT z.rank FROM (
+            SELECT t.Show_ID,t.score, t.No_of_Entries, @rownum := @rownum + 1 AS rank
+            FROM ranks_popularity_vw t, (SELECT @rownum := 0) r
+            ORDER BY No_of_Entries desc
+            ) as z WHERE Show_ID=<%=ShowID%>;
+        </sql:query>    
 
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="showstemplate.css"/>
@@ -65,10 +80,10 @@
                 <div class="description"><div class="container_desc">
                         <h1 id="show_name"><c:forEach var="row" items="${result.rows}"><c:out value="${row.Title}" /></c:forEach></h1>
                         <h2>Synopsis</h2><p><c:forEach var="row" items="${result.rows}"><c:out value="${row.Synopsis}" /></c:forEach></p>
-                    </div><p class="additional_info"><a href="addactor.jsp?id=<%= ShowID%>">Add Actor</a> <a href="addpeople.jsp?id=<%= ShowID%>">Add Producer/Writer</a> <a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="addinlist.jsp?id=<%= ShowID %>">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
+                    </div><p class="additional_info"><a href="addactor.jsp?id=<%= ShowID%>">Add Actor</a> <a href="addpeople.jsp?id=<%= ShowID%>">Add Producer/Writer</a> <a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="addinlist.jsp?id=<%= ShowID%>">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
                 </div>
             </div>
-            <<div class="further_description">
+            <div class="further_description">
                 <div class="information">
                     <h3>Information</h3>
                     <ol>
@@ -82,8 +97,8 @@
                         <h3>Statistics</h3>
                         <ol>
                             <li>Score: <c:forEach var="scor" items="${score.rows}"><c:out value="${scor.score}" /></c:forEach></li>
-                        <li>Rank: </li>
-                        <li>Popularity: </li>
+                        <li>Rank: <c:forEach var="row" items="${rank.rows}"><c:out value="${row.rank}" /></c:forEach></li>
+                        <li>Popularity: <c:forEach var="row" items="${popularity.rows}"><c:out value="${row.rank}" /></c:forEach></li>
                     </ol>
                 </div>
                 <div class="actors_voice">
