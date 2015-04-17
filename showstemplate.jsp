@@ -38,7 +38,7 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="showstemplate.css"/>
         <link rel="stylesheet" href="reset.css"/>
-        <title><c:forEach var="row" items="${result.rows}"><c:out value="${row.Title}" /></c:forEach><%--<%= st.executeQuery("select Title from Shows where Show_ID = " + ShowID) %>--%></title>
+        <title><c:forEach var="row" items="${result.rows}"><c:out value="${row.Title}" /></c:forEach></title>
         </head>
 
         <body>
@@ -65,7 +65,7 @@
                 <div class="description"><div class="container_desc">
                         <h1 id="show_name"><c:forEach var="row" items="${result.rows}"><c:out value="${row.Title}" /></c:forEach></h1>
                         <h2>Synopsis</h2><p><c:forEach var="row" items="${result.rows}"><c:out value="${row.Synopsis}" /></c:forEach></p>
-                    </div><p class="additional_info"><a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
+                    </div><p class="additional_info"><a href="addactor.jsp?id=<%= ShowID%>">Add Actor</a> <a href="addpeople.jsp?id=<%= ShowID%>">Add Producer/Writer</a> <a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="addinlist.jsp?id=<%= ShowID %>">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
                 </div>
             </div>
             <<div class="further_description">
@@ -78,10 +78,10 @@
                         <li>Airdate: <c:forEach var="row" items="${result.rows}"><c:out value="${row.Airdate}" /></c:forEach></li>
                         <li>Producers: <c:forEach var="prow" items="${producer.rows}"><c:out value="${prow.F_Name}" /><c:out value=" "/></c:forEach></li>
                         <li>Authors: <c:forEach var="arow" items="${author.rows}"><c:out value="${arow.F_Name}" />,<c:out value=" "/></c:forEach></li>
-                    </ol><br>
-                    <h3>Statistics</h3>
-                    <ol>
-                        <li>Score: <c:forEach var="scor" items="${score.rows}"><c:out value="${scor.score}" /></c:forEach></li>
+                        </ol><br>
+                        <h3>Statistics</h3>
+                        <ol>
+                            <li>Score: <c:forEach var="scor" items="${score.rows}"><c:out value="${scor.score}" /></c:forEach></li>
                         <li>Rank: </li>
                         <li>Popularity: </li>
                     </ol>

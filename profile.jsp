@@ -33,7 +33,7 @@
                     <div class="fieldset"><label>Country</label><input name="pr_country" class="profile_input" placeholder="e.g Germany" type="text"></div>
                     <div class="fieldset"><label>Gender</label><select name="pr_gender" class="gender"><option value="Male">Male</option><option value="Female">Female</option></select></div>
                     <div class="fieldset"><label>About Me</label><input name="pr_about" class="profile_input" placeholder="Max Characters: 450" maxlength="450" type="text"></div>
-                    <div class="fieldset"><label>Type</label><select name="pr_type" class="gender"><option value="Normal">Normal User</option><option value="Admin">Admin</option></select></div>
+                    <div class="fieldset"><label>Type</label><select name="pr_type" class="gender"><option value="Normal User">Normal User</option><option value="Admin">Admin</option></select></div>
                     <div class="fieldset"><input value="Save" type="submit"></div>
                 </div>
             </form>

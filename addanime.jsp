@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html><%@include file="loginchecker.jsp" %>
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="profile.css"/>

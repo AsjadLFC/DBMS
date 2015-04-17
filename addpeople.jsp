@@ -1,15 +1,14 @@
 <%-- 
-    Document   : editshow
-    Created on : Apr 16, 2015, 7:50:50 PM
+    Document   : addpeople
+    Created on : Apr 17, 2015, 2:43:25 PM
     Author     : programmercore
 --%>
-
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<% 
-      int ShowID = Integer.parseInt(request.getParameter("id"));
+<%
+    int ShowID = Integer.parseInt(request.getParameter("id"));
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,18 +25,19 @@
             <div class="heading">
                 <h1>Not Decided</h1>
             </div>
-            <form class="form" method="get" action="editshowinfo.jsp">
+            <form class="form" method="get" action="addpeoplejava.jsp">
                 <div class="form_header">
-                    <h1 class="form-heading">Edit Info</h1>
-                    <p class="profile_description">Edit the information of the TV Show.</p>
+                    <h1 class="form-heading">Anime/TV Shows</h1>
+                    <p class="profile_description">Add people to the database.</p>
                 </div>
                 <div class="form_content">
+                    <div class="fieldset"><label>Avatar</label><input name="people_image" class="profile_input" data-role="avatar-file-upload" type="file"></div>
                     <div class="fieldset"><label class="showid">Show ID</label><select name="id" class="gender showid"><option value="<%= ShowID %>"><%= ShowID %></option></select></div>
-                    <div class="fieldset"><label>Avatar</label><input name="show_image" class="profile_input" data-role="avatar-file-upload" type="file"></div>
-                    <div class="fieldset"><label>Episodes</label><input name="show_episodes" class="profile_input" placeholder="No of Episodes if Finished" type="text"></div>
-                    <div class="fieldset"><label>Status</label><select name="show_status" class="gender"><option value="Ongoing">Ongoing</option><option value="Finished">Finished</option></select></div>
-                    <div class="fieldset"><label>Synopsis</label><input name="show_synopsis" class="profile_input about" placeholder="Max Characters: 450" maxlength="450" type="text"></div>
-                    <div class="fieldset"><input value="Save" type="submit"></div>
+                    <div class="fieldset"><label>First Name</label><input name="people_FName" class="profile_input" type="text"></div>
+                    <div class="fieldset"><label>Last Name</label><input name="people_LName" class="profile_input" type="text"></div>
+                    <div class="fieldset"><label>Type</label><select name="people_type" class="gender"><option value="Author">Author</option><option value="Producer">Producer</option></select></div>
+                    <div class="fieldset"><label>Description</label><input name="people_desc" class="profile_input about" placeholder="Max Characters: 450" maxlength="450" type="text"></div>
+                    <div class="fieldset"><input value="Add" type="submit"></div>
                 </div>
             </form>
             <div id="footer">

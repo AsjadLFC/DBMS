@@ -9,7 +9,7 @@
 --%>
 
 <%
-    String User = (String)session.getAttribute("theName");
+    String User = (String) session.getAttribute("theName");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,11 +26,31 @@
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/MYANIMELISTBORN"
                            user="root"  password="I'm insane"/>
-        
+
         <sql:query dataSource="${snapshot}" var="profile">
-            select * from User where Email="<%= User %>";
+            select * from User where Email = '<%=User%>';
         </sql:query>
         
+        <sql:query dataSource="${snapshot}" var="completed">
+            select count(*) as count from Listed where User_ID = (select User_ID from User where Email='<%=User%>' and User_ID >0) and Status='Completed';
+        </sql:query>
+            
+        <sql:query dataSource="${snapshot}" var="totalentries">
+            select count(*) as count from Listed where User_ID = (select User_ID from User where Email='<%=User%>' and User_ID >0);
+        </sql:query>    
+            
+        <sql:query dataSource="${snapshot}" var="dropped">
+            select count(*) as count from Listed where User_ID = (select User_ID from User where Email='<%=User%>' and User_ID >0) and Status='Dropped';
+        </sql:query>    
+            
+        <sql:query dataSource="${snapshot}" var="watching">
+            select count(*) as count from Listed where User_ID = (select User_ID from User where Email='<%=User%>' and User_ID >0) and Status='Watching';
+        </sql:query>      
+            
+        <sql:query dataSource="${snapshot}" var="time">
+            select count(*) as count from Listed where User_ID = (select User_ID from User where Email='<%=User%>' and User_ID >0) and Status='Completed';
+        </sql:query>    
+
         <br><div class="formsearch">
             <form class="search_form" method="get" action="search.jsp">
                 <input name="searchparameter" class="search_input" placeholder="Search" type="text">
@@ -38,7 +58,7 @@
             </form>
         </div>
         <div class="container">
-            <p class="edit_profile"><a href="profile.jsp">Edit Profile</a></p>
+            <p class="edit_profile"><a href="addanime.jsp">Add Anime</a> <a href="profile.jsp">Edit Profile</a> <a href="list.jsp">List</a> <a href="logout.jsp">Logout</a></p>
             <div class="information">
                 <div class="profile_image">
 
@@ -50,12 +70,12 @@
                             <li>Name: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.F_Name}" /></c:forEach> <c:forEach var="row" items="${profile.rows}"><c:out value="${row.L_Name}" /></c:forEach></li>
                             <li>Gender: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Gender}" /></c:forEach></li>
                             <li>Country: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Country}" /></c:forEach></li>
-                        </ul>
-                    </div>			
+                            </ul>
+                        </div>			
 
-                    <div class="about">
-                        <h2>About Me:</h2><br>
-                        <p><c:forEach var="row" items="${profile.rows}"><c:out value="${row.About}" /></c:forEach></p>					
+                        <div class="about">
+                            <h2>About Me:</h2><br>
+                            <p><c:forEach var="row" items="${profile.rows}"><c:out value="${row.About}" /></c:forEach></p>					
                     </div>
 
                 </div>
@@ -66,11 +86,11 @@
                     <h2>Statistics</h2>
                     <div class="heading">
                         <ul>
-                            <li>Time</li>
-                            <li>Watching</li>
-                            <li>Completed</li>
-                            <li>Dropped</li>
-                            <li>Total Entries</li>						
+                            <li>Time: </li>
+                            <li>Watching: <c:forEach var="row" items="${watching.rows}"><c:out value="${row.count}" /></c:forEach></li>
+                            <li>Completed: <c:forEach var="row" items="${completed.rows}"><c:out value="${row.count}" /></c:forEach></li>
+                            <li>Dropped: <c:forEach var="row" items="${dropped.rows}"><c:out value="${row.count}" /></c:forEach></li>
+                            <li>Total Entries: <c:forEach var="row" items="${totalentries.rows}"><c:out value="${row.count}" /></c:forEach></li>						
                         </ul>
                     </div>
                     <div class="heading_entries">
