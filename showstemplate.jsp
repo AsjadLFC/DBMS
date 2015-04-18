@@ -11,6 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     int ShowID = Integer.parseInt(request.getParameter("id"));
+    String User = (String) session.getAttribute("theName");
 %>
 <html    
     <head>
@@ -48,7 +49,12 @@
             FROM ranks_popularity_vw t, (SELECT @rownum := 0) r
             ORDER BY No_of_Entries desc
             ) as z WHERE Show_ID=<%=ShowID%>;
-        </sql:query>    
+        </sql:query>
+
+        <sql:query dataSource="${snapshot}" var="Admin">
+            select count(*) as count from User
+            where Email='<%=User%>' and type='Admin';
+        </sql:query>   
 
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="showstemplate.css"/>
@@ -80,7 +86,7 @@
                 <div class="description"><div class="container_desc">
                         <h1 id="show_name"><c:forEach var="row" items="${result.rows}"><c:out value="${row.Title}" /></c:forEach></h1>
                         <h2>Synopsis</h2><p><c:forEach var="row" items="${result.rows}"><c:out value="${row.Synopsis}" /></c:forEach></p>
-                    </div><p class="additional_info"><a href="addactor.jsp?id=<%= ShowID%>">Add Actor</a> <a href="addpeople.jsp?id=<%= ShowID%>">Add Producer/Writer</a> <a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="addinlist.jsp?id=<%= ShowID%>">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
+                    </div><p class="additional_info"><c:forEach items="${Admin.rows}" var="r"><c:if test="${r.count gt 0}"><a href="addactor.jsp?id=<%= ShowID%>">Add Actor</a> <a href="addpeople.jsp?id=<%= ShowID%>">Add Producer/Writer</a> </c:if></c:forEach><a href="editshow.jsp?id=<%= ShowID%>">Edit</a> <a href="addinlist.jsp?id=<%= ShowID%>">List</a> <a href="review.jsp?id=<%= ShowID%>">Reviews</a></p>
                 </div>
             </div>
             <div class="further_description">
