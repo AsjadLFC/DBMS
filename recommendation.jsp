@@ -2,20 +2,16 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%-- 
-    Document   : search
-    Created on : Mar 21, 2015, 10:23:43 PM
-    Author     : programmercore
---%>
-
+<%
+    int ShowID = Integer.parseInt(request.getParameter("id"));
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="search.css"/>
         <link rel="stylesheet" href="reset.css"/>
-        <title>Not Decided</title>
+        <title>Recommendation</title>
     </head>
 
     <body>
@@ -23,6 +19,11 @@
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/MYANIMELISTBORN"
                            user="root"  password="I'm insane"/>
+
+        <sql:query dataSource="${snapshot}" var="recommendation">
+            select s.Show_ID,concat(u.F_Name) as Name,r.Description as Description,s.Title as Title from Recommendation r, Shows s, User u
+            where r.Show_ID_one=<%=ShowID%> and s.Show_ID = r.Show_ID_two and r.User_ID = u.User_ID;
+        </sql:query>
 
         <div class="container">
 
@@ -49,33 +50,28 @@
             </div>
 
 
-            <sql:query dataSource="${snapshot}" var="result">
-                SELECT * from Shows where Title like '%${param.searchparameter}%' order by Title;
-            </sql:query>
-
             <div class="search_results">
                 <div class="result_field">
                     <table cellspacing="0" cellpadding="0" border="0" width="100%">
                         <tbody>
                             <tr class="search_space">
-                                <th class="normal_header">Search Results</th>
-                                <th class="normal_header" width="10%"><a href="">Type</a></th>
-                                <th class="normal_header" width="10%" nowrap=""><a href="">Eps.</a></th>
-                                <th class="normal_header" width="10%" nowrap=""><a href="">Score</a></th>
+                                <th class="normal_header" nowrap="" >Name</td>
+                                <th class="normal_header" nowrap="" ></td>
+                                <th class="normal_header" width="80%"><a href="">Review</a></td>
                             </tr>
-                            <c:forEach var="row" items="${result.rows}">
-
-                                <sql:query dataSource="${snapshot}" var="score">
-                                    select Round(avg(Score),2) as score from Listed where Show_ID = ${row.Show_ID};
-                                </sql:query>
-
-                                <tr>
-                                    <td class="show_info" align="center"><a href="showstemplate.jsp?id=${row.Show_ID}"><span id="enameval"><c:out value="${row.Title}"/></span></a></td>
-                                    <td class="show_info extra" align="center"><c:out value="${row.Type}"/></td>
-                                    <td class="show_info extra" align="center"><c:out value="${row.Episodes}"/></td>
-                                    <td class="show_info extra" align="center"><c:forEach var="scor" items="${score.rows}"><c:out value="${scor.score}" /></c:forEach></td>
-                                </tr>
-                            </c:forEach>
+                        <form action="addrecommendation.jsp" class="search_form"><tr>
+                                <td class="show_info extra" align="center"><select><option value="">Name</option></select></td><div class="showname"><select class="showname" name="show_name" ><option value="<%= ShowID%>"><%= ShowID%></option></select></div>
+                            <td class="show_info extra" align="center"><input class="review_input_field" placeholder="Show Name" type="text" name="recom_name" ><input name="description" class="review_input_field" placeholder="Description" type="text" ><input class="review_submit" value="save" type="submit" ></td>
+                                <th class="normal_header" nowrap="" ></td>						
+                            </tr></form>
+                        <c:forEach var="row" items="${recommendation.rows}">
+                        
+                        <tr>
+                            <td class="show_info" align="left"><c:out value="${row.Name}" /></td>
+                            <td class="show_info extra desc" align="center"><c:out value="${row.Description}" /></td>
+                            <td class="show_info extra" align="center" ><a href="showstemplate.jsp?id=${row.Show_ID}" ><c:out value="${row.Title}" /></td>
+                        </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

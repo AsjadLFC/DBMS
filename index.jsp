@@ -28,9 +28,12 @@
                 </div>
                 <div class="register_field">
                     <div class="reg_form">
-                        <h2>Sign Up</h2><p class="error"><c:if test="${not empty param.errMsg}">
+                        <h2>Sign Up</h2>
+                        <p class="error">
+                            <c:if test="${not empty param.errMsg}">
                                 <c:out value="${param.errMsg}" />
-                            </c:if></p>
+                            </c:if>
+                        </p>
                         <form class="form" method="get" action="registration.jsp">
                             <input name="user_name" type="text" placeholder="First Name"></input>
                             <input name="user_mail" type="email" placeholder="Email"></input>

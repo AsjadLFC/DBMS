@@ -14,7 +14,7 @@
     </head>
     <body>
         <%
-            session.removeAttribute("loginUser");
+            session.removeAttribute("theName");
         %>
 
         <c:redirect url="index.jsp" />

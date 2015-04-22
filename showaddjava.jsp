@@ -17,10 +17,11 @@
     String airdate = request.getParameter("show_airdate");
     String status = request.getParameter("show_status"); 
     String synopsis = request.getParameter("show_synopsis");
+    String type = request.getParameter("show_type");
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/MYANIMELISTBORN",
             "root", "I'm insane");
-    String sql = "insert into Shows (Status,Airdate,Title,Synopsis,Episodes) values (?,?,?,?,?)";
+    String sql = "insert into Shows (Status,Airdate,Title,Synopsis,Episodes,Type) values (?,?,?,?,?,?)";
     PreparedStatement prepstmt = con.prepareStatement(sql);
     
     
@@ -32,6 +33,7 @@
     prepstmt.setString(3, name);
     prepstmt.setString(4, synopsis);
     prepstmt.setInt(5, episodes);
+    prepstmt.setString(6, type);
     
     prepstmt.executeUpdate();
     

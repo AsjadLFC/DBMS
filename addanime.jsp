@@ -31,6 +31,7 @@
                     <div class="fieldset"><label>Airdate</label><input name="show_airdate" class="profile_input" placeholder="e.g 12/31/1999" type="text"></div>
                     <div class="fieldset"><label>Episodes</label><input name="show_episodes" class="profile_input" placeholder="No of Episodes if Finished" type="text"></div>
                     <div class="fieldset"><label>Status</label><select name="show_status" class="gender"><option value="Ongoing">Ongoing</option><option value="Finished">Finished</option></select></div>
+                    <div class="fieldset"><label>Type</label><select name="show_type" class="gender"><option value="Anime">Anime</option><option value="TV Show">TV Show</option></select></div>
                     <div class="fieldset"><label>Synopsis</label><input name="show_synopsis" class="profile_input about" placeholder="Max Characters: 450" maxlength="450" type="text"></div>
                     <div class="fieldset"><input value="Save" type="submit"></div>
                 </div>

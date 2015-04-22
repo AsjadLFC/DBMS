@@ -2,8 +2,8 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<% 
-      int ShowID = Integer.parseInt(request.getParameter("id"));
+<%
+    int ShowID = Integer.parseInt(request.getParameter("id"));
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -19,11 +19,11 @@
         <sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/MYANIMELISTBORN"
                            user="root"  password="I'm insane"/>
-        
+
         <sql:query dataSource="${snapshot}" var="result">
-                select RB.*,U.* from User U, Reviewed_By RB where U.User_ID=RB.User_ID and RB.Show_ID = <%= ShowID %>;
-            </sql:query>
-        
+            select RB.*,U.* from User U, Reviewed_By RB where U.User_ID=RB.User_ID and RB.Show_ID = <%= ShowID%>;
+        </sql:query>
+
         <div class="container">
 
             <div class="top_bar">
@@ -57,15 +57,17 @@
                                 <th class="normal_header" nowrap="" >Name</td>
                                 <th class="normal_header" width="80%"><a href="">Review</a></td>
                             </tr>
-                        <form action="addreview.jsp" class="search_form"><tr>
-                                <td class="show_info extra" align="center"><select><option value="">Name</option></select></td><div class="showname"><select class="showname" name="show_name" ><option value="<%= ShowID %>"><%= ShowID %></option></select></div>
+                        <form action="addreview.jsp" class="search_form">
+                            <tr>
+                                <td class="show_info extra" align="center"><select><option value="">Name</option></select></td><div class="showname"><select class="showname" name="show_name" ><option value="<%= ShowID%>"><%= ShowID%></option></select></div>
                                 <td class="show_info extra" align="center"><input name="content" class="review_input_field" placeholder="Submit Review" type="text" ><input class="review_submit" value="Submit" type="submit" ></td>
-                            </tr></form>
+                            </tr>
+                        </form>
                         <c:forEach var="row" items="${result.rows}">
-                        <tr>
-                            <td class="show_info" align="center"><c:out value="${row.F_Name}" /></td>
-                            <td class="show_info extra" align="center"><c:out value="${row.content}" /></td>
-                        </tr>
+                            <tr>
+                                <td class="show_info" align="center"><c:out value="${row.F_Name}" /></td>
+                                <td class="show_info extra" align="center"><c:out value="${row.content}" /></td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>

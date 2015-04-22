@@ -1,39 +1,4 @@
-.container, body{
-    background: none repeat scroll 0% 0% #ECECEC;
-    width: 100%;
-    height: 100%;
-}.showid{
-    display:none;
-}
-
-.heading{
-    width: 98%;
-    height: 70px;
-    border-radius: 3px;
-    border: 1px solid #E0E3E9;   
-    background: none repeat scroll 0% 0% #EFEFEF;
-    margin: auto;
-}
-.heading h1{
-    width: 79.8%;
-    height: 100%;
-    margin: auto;
-    padding-top: 20px;
-    color: #3498DB;
-    font-size: 30px;
-    font: verdana, arial;
-}
-
-.about{
-    height: 150px;
-}
-
-/*
-        *	This Section only affects the form part of the profile page
-*/
-
-.form {
-    height: 900px;padding-bottom: 40px;
+.form {padding-bottom: 40px;
     width: 65%;
     margin: auto;
     margin-top: 20px;
@@ -47,6 +12,8 @@
     text-rendering: optimizelegibility;
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     border-bottom: 1px solid #EFF3FA;
+}.showid{
+    display:none;
 }
 
 .form-heading {
@@ -126,32 +93,4 @@ input[type="submit"], button[type="submit"] {
     color: #FFF;
     outline: medium none;
     padding: 6px;
-}
-
-#footer{
-    margin-top: 50px;
-    background-color: #161616;
-    border-top: 2px solid #9AA5AD;
-    height: 48px;
-    text-align: right;
-    position: absolute;
-    left: 0;
-    margin-bottom: 0;
-    width: 100%;
-}
-
-#footer a{
-    padding-right: 5px;
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 0.8em;
-    color: #FFF;
-}
-
-#footer a:hover{
-    color: #4364DA;
-}
-
-.footer{
-    width: 80%;
 }

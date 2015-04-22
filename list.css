@@ -54,4 +54,8 @@ body{
 }.normal_header a{
     text-decoration: none;
     color: black;
+}.container p{
+    color: #7F919E;
+    font-size: 15px;
+    margin-top: 2px;
 }

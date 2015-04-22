@@ -1,5 +1,6 @@
 .container,body{
-    height: 100%;width: 100%;
+    height: 100%;
+    width: 100%;
     background: #ECECEC;
 }
 
@@ -22,11 +23,13 @@
 }
 
 #menu{
-    float: right;margin-top: -18px;
+    float: right;
+    margin-top: -18px;
 }
 
 ul{
-    padding: 0; list-style: none;
+    padding: 0;
+    list-style: none;
 }
 ul li{
     float: left;
@@ -44,7 +47,8 @@ ul li a{
 
 ul li a, ul li ul li{
     text-decoration: none;
-    font-family: monospace;letter-spacing: -1px;
+    font-family: monospace;
+    letter-spacing: -1px;
     color: #3498DB;
 }
 
@@ -64,10 +68,13 @@ ul li ul a:hover{
 
 ul li:hover ul{
     display: block; /* display the dropdown */
-}ol li{
+}
+
+ol li{
     text-decoration: none;
     line-height: 1.5em;
-    font-family: verdana,ariel;font-weight: bold;
+    font-family: verdana,ariel;
+    font-weight: bold;
     color: #57595D;
 }
 
@@ -85,46 +92,99 @@ ul li:hover ul{
     height: 100%;
     width: 25%;
     margin-left: 15%;
-    border-right: 2px groove #022F70;background:url(../Images/ghoul1.jpg) no-repeat scroll center center / cover transparent;
+    border-right: 2px groove #022F70;
+    background:url(../Images/ghoul1.jpg) no-repeat scroll center center / cover transparent;
 }
 
 .description{
-    margin-top: -290px;margin-left: 40.2%;
+    margin-top: -290px;
+    margin-left: 40.2%;
     height: 96%;
 }.container_desc{
     height: 94%;
 }
 .description h1{
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;color: #000;font-size: 1.5em;padding-bottom: 2px;
-    font-weight: bolder;width:677px;line-height: 30px;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #000;
+    font-size: 1.5em;
+    padding-bottom: 2px;
+    font-weight: bolder;
+    width:677px;
+    line-height: 30px;
 }
+
 .description h2{
-    border-bottom: 2px solid #A7A7A7;font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;color: #7F919E;
+    border-bottom: 2px solid #A7A7A7;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #7F919E;
     font-weight: bolder;
 }
+
 .description p{
-    font: verdana,arial;font-size: 11px;line-height: 1.7em;text-align: center;width: 677px;
-}.additional_info a{
-    text-decoration: none;color: #022F70; 
-}.additional_info a:hover{
+    font: verdana,arial;
+    font-size: 11px;
+    line-height: 1.7em;
+    text-align: center;
+    width: 677px;
+}
+
+.additional_info a{
+    text-decoration: none;
+    color: #022F70; 
+}
+
+.additional_info a:hover{
     color: #121212; 
 }
 
 .further_description{
-    width:87%;background: #ECECEC;height: 100%;margin: auto;
-}.information{
-    height: 100%;width: 25%;margin-left: 17px;border-right: 2px solid #a7a7a7;
+    width:87%;
+    background: #ECECEC;
+    height: 100%;
+    margin: auto;
+}
+
+.information{
+    height: 100%;
+    width: 25%;
+    margin-left: 17px;
+    border-right: 2px solid #a7a7a7;
     float: left;
-}.informmation h3{
-    border-bottom: 1px solid black;padding-bottom: 10px;
-}.actors_voice{
-    float: right;width: 73%;height: 100%;
-}.table_heading{
+}
+
+.informmation h3{
     border-bottom: 1px solid black;
-}.actors_voice li{
-    font-family: verdana;font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.actors_voice{
+    float: right;
+    width: 73%;
+    height: 100%;
+}
+
+.table_heading{
+    border-bottom: 0px solid black;
+}
+
+.actors_voice th,.actors_voice p{
+    font-family: ariel,verdana;
+    font-size: 15px;
     font-weight: bold;
 }
+
+.actors_voice a{
+    text-decoration: none;color:#57595D;
+}
+
+.actors_voice td{
+    font-size: 15px;
+    line-height: 1.5em;
+    font-family: verdana,ariel;
+    font-weight: bold;
+    color: #57595D;
+}
+
 
 /*	
         Only the footer codes are down there

@@ -2,11 +2,6 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%-- 
-    Document   : profilepage
-    Created on : Mar 25, 2015, 7:24:36 PM
-    Author     : programmercore
---%>
 
 <%
     String User = (String) session.getAttribute("theName");
@@ -63,16 +58,16 @@
             </form>
         </div>
         <div class="container">
-            <p class="edit_profile"><c:forEach items="${Admin.rows}" var="r"><c:if test="${r.count gt 0}"><a href="addanime.jsp">Add Anime</a> </c:if></c:forEach><a href="profile.jsp">Edit Profile</a> <a href="list.jsp">List</a> <a href="logout.jsp">Logout</a></p>
-            <div class="information">
-                <div class="profile_image">
+            <p class="edit_profile"><c:forEach items="${Admin.rows}" var="r"><c:if test="${r.count gt 0}"><a href="Users.jsp">Users</a> <a href="addanime.jsp">Add Show</a> </c:if></c:forEach><a href="profile.jsp">Edit Profile</a> <a href="list.jsp">List</a> <a href="logout.jsp">Logout</a></p>
+                    <div class="information">
+                        <div class="profile_image">
 
-                </div>
+                        </div>
 
-                <div class="profile_info">
-                    <div class="info">
-                        <ul>
-                            <li>Name: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.F_Name}" /></c:forEach> <c:forEach var="row" items="${profile.rows}"><c:out value="${row.L_Name}" /></c:forEach></li>
+                        <div class="profile_info">
+                            <div class="info">
+                                <ul>
+                                    <li>Name: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.F_Name}" /></c:forEach> <c:forEach var="row" items="${profile.rows}"><c:out value="${row.L_Name}" /></c:forEach></li>
                             <li>Gender: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Gender}" /></c:forEach></li>
                             <li>Country: <c:forEach var="row" items="${profile.rows}"><c:out value="${row.Country}" /></c:forEach></li>
                             </ul>
